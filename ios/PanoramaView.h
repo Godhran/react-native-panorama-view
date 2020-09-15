@@ -21,5 +21,6 @@
 @property (nonatomic, assign) BOOL _enableTouchTracking;
 @property (nonatomic, copy) RCTDirectEventBlock onImageLoadingFailed;
 @property (nonatomic, copy) RCTDirectEventBlock onImageLoaded;
+@property (nonatomic, copy) RCTDirectEventBlock onImageLoading;
 
 @end

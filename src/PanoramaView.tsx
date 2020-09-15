@@ -8,12 +8,14 @@ interface Props {
   enableTouchTracking?: boolean;
   onImageLoadingFailed?: () => void;
   onImageLoaded?: () => void;
+  onImageLoading?: () => void;
   style: ViewStyle;
 }
 
 export const PanoramaView: React.FC<Props> = ({
   onImageLoadingFailed,
   onImageLoaded,
+  onImageLoading,
   dimensions,
   inputType,
   ...props
@@ -27,6 +29,12 @@ export const PanoramaView: React.FC<Props> = ({
   const _onImageLoaded = () => {
     if (onImageLoaded) {
       onImageLoaded();
+    }
+  };
+
+  const _onImageLoading = () => {
+    if (onImageLoading) {
+      onImageLoading();
     }
   };
 
@@ -45,6 +53,7 @@ export const PanoramaView: React.FC<Props> = ({
       dimensions={dimensions}
       inputType={inputType}
       onImageLoaded={_onImageLoaded}
+      onImageLoading={_onImageLoading}
       onImageLoadingFailed={_onImageLoadingFailed}
     />
   );

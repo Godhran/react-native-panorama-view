@@ -55,10 +55,13 @@
 
     __weak PanoramaView *weakSelf = self;
 
-    if (imageUrl.length && _bridge.imageLoader) {
+//     if (imageUrl.length && _bridge.imageLoader) {
+    if (imageUrl.length && [_bridge moduleForClass:[RCTImageLoader class]]) {
         NSLog(@"[PanoramaView] Getting ready to load.");
+        [self imageLoading];
 
-        [_bridge.imageLoader loadImageWithURLRequest: [RCTConvert NSURLRequest: imageUrl]
+//         [_bridge.imageLoader loadImageWithURLRequest: [RCTConvert NSURLRequest: imageUrl]
+        [[_bridge moduleForClass:[RCTImageLoader class]] loadImageWithURLRequest: [RCTConvert NSURLRequest: imageUrl]
                                             callback:^(NSError *error, UIImage *image) {
                                                 if (image == nil && error) {
                                                     [self imageLoadingFailed];
@@ -81,7 +84,8 @@
         if (!imageUrl.length) {
             NSLog(@"[PanoramaView] Image argument not sufficient.");
         }
-        if (!_bridge.imageLoader) {
+//         if (!_bridge.imageLoader) {
+        if (![_bridge moduleForClass:[RCTImageLoader class]]) {
             NSLog(@"[PanoramaView] Bridge image loader not available.");
         }
         NSLog(@"[PanoramaView] Image argument not sufficient or bridge image loader not available.");
@@ -109,6 +113,14 @@
 
     if (_onImageLoaded) {
         _onImageLoaded(nil);
+    }
+}
+
+- (void)imageLoading {
+    NSLog(@"[PanoramaView] Image loading.");
+
+    if (_onImageLoading) {
+        _onImageLoading(nil);
     }
 }
 

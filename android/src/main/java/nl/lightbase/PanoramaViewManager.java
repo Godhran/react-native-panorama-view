@@ -103,6 +103,8 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
                 MapBuilder.of("registrationName", "onImageLoadingFailed"),
                 "onImageLoaded",
                 MapBuilder.of("registrationName", "onImageLoaded")
+                "onImageLoading",
+                MapBuilder.of("registrationName", "onImageLoading")
         );
     }
 
@@ -241,6 +243,13 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
             Log.i(REACT_CLASS, "Image loaded.");
 
             emitEvent("onImageLoaded", null);
+        }
+
+
+        public void onLoadStart() {
+            Log.i(REACT_CLASS, "Loading image.");
+
+            emitEvent("onImageLoading", null);
         }
 
         @Override
