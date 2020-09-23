@@ -3,7 +3,8 @@ package nl.lightbase;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.os.AsyncTask;
-import android.support.annotation.Nullable;
+//import android.support.annotation.Nullable;
+import androidx.annotation.Nullable;
 import android.util.Log;
 import android.util.Pair;
 import android.webkit.URLUtil;
@@ -63,6 +64,7 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
 
     @Override
     public VrPanoramaView createViewInstance(ThemedReactContext context) {
+        emitEvent("onImageLoading", null);
         vrPanoramaView = new VrPanoramaView(context.getCurrentActivity());
         vrPanoramaView.setEventListener(new ActivityEventListener());
 
@@ -88,6 +90,7 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
             try {
                 imageLoaderTask = new ImageLoaderTask();
                 imageLoaderTask.execute(Pair.create(imageUrl, _options));
+                emitEvent("onImageLoaded", null);
             } catch (Exception e) {
                 emitEvent("onImageLoadingFailed", null);
             }
@@ -102,7 +105,7 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
                 "onImageLoadingFailed",
                 MapBuilder.of("registrationName", "onImageLoadingFailed"),
                 "onImageLoaded",
-                MapBuilder.of("registrationName", "onImageLoaded")
+                MapBuilder.of("registrationName", "onImageLoaded"),
                 "onImageLoading",
                 MapBuilder.of("registrationName", "onImageLoading")
         );

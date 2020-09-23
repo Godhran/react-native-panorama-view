@@ -12,7 +12,7 @@
         "splits": [],
         "versionCode": 1,
         "versionName": "1.0",
-        "outputFile": "@lightbase_react-native-panorama-view-debug.aar",
+        "outputFile": "lightbase_react-native-panorama-view-debug.aar",
         "fullName": "debug",
         "baseName": "debug",
         "dirName": ""
