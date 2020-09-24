@@ -5,28 +5,28 @@
       "/Users/odhrangormley/Projects/GOT"
     ]
   ],
-  "_from": "@lightbase/react-native-panorama-view@0.1.3",
+  "_from": "git+https://github.com/Godhran/react-native-panorama-view.git",
   "_id": "@lightbase/react-native-panorama-view@0.1.3",
   "_inBundle": false,
-  "_integrity": "sha512-VY5FNTuPiuN9+BawblZTkqi+Y4PH5P5B+RnP+tH48ZdhLcN5eQCsaCz125YrvyrIIBtiJi8OYBtiDNL4i6Szwg==",
+  "_integrity": "",
   "_location": "/@lightbase/react-native-panorama-view",
   "_phantomChildren": {},
   "_requested": {
-    "type": "version",
-    "registry": true,
-    "raw": "@lightbase/react-native-panorama-view@0.1.3",
+    "type": "git",
+    "raw": "@lightbase/react-native-panorama-view@git+https://github.com/Godhran/react-native-panorama-view.git",
     "name": "@lightbase/react-native-panorama-view",
     "escapedName": "@lightbase%2freact-native-panorama-view",
     "scope": "@lightbase",
-    "rawSpec": "0.1.3",
-    "saveSpec": null,
-    "fetchSpec": "0.1.3"
+    "rawSpec": "git+https://github.com/Godhran/react-native-panorama-view.git",
+    "saveSpec": "git+https://github.com/Godhran/react-native-panorama-view.git",
+    "fetchSpec": "https://github.com/Godhran/react-native-panorama-view.git",
+    "gitCommittish": null
   },
   "_requiredBy": [
     "/"
   ],
-  "_resolved": "https://registry.npmjs.org/@lightbase/react-native-panorama-view/-/react-native-panorama-view-0.1.3.tgz",
-  "_spec": "0.1.3",
+  "_resolved": "git+https://github.com/Godhran/react-native-panorama-view.git#9b6e18bb26eee33a1edab4115bd814c6c14c34ba",
+  "_spec": "@lightbase/react-native-panorama-view@git+https://github.com/Godhran/react-native-panorama-view.git",
   "_where": "/Users/odhrangormley/Projects/GOT",
   "author": {
     "name": "Rody Molenaar",
@@ -35,6 +35,8 @@
   "bugs": {
     "url": "https://github.com/lightbasenl/react-native-panorama-view/issues"
   },
+  "bundleDependencies": false,
+  "deprecated": false,
   "description": "A simple component for displaying panoramic images in your React Native app.",
   "devDependencies": {
     "@lightbase/eslint-config-lightbase": "^1.0.3",

@@ -87,10 +87,9 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
 
         if (imageUrl != null && URLUtil.isValidUrl(imageUrl.toString())) {
             try {
-                emitEvent("onImageLoading", null);
                 imageLoaderTask = new ImageLoaderTask();
                 imageLoaderTask.execute(Pair.create(imageUrl, _options));
-                emitEvent("onImageLoaded", null);
+//                emitEvent("onImageLoaded", null);
             } catch (Exception e) {
                 emitEvent("onImageLoadingFailed", null);
             }
@@ -104,10 +103,10 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
         return MapBuilder.of(
                 "onImageLoadingFailed",
                 MapBuilder.of("registrationName", "onImageLoadingFailed"),
-                "onImageLoaded",
-                MapBuilder.of("registrationName", "onImageLoaded"),
                 "onImageLoading",
-                MapBuilder.of("registrationName", "onImageLoading")
+                MapBuilder.of("registrationName", "onImageLoading"),
+                "onImageLoaded",
+                MapBuilder.of("registrationName", "onImageLoaded")
         );
     }
 
@@ -158,6 +157,7 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
         protected Boolean doInBackground(Pair<URL, VrPanoramaView.Options>... fileInformation) {
             final URL imageUrl = fileInformation[0].first;
             VrPanoramaView.Options _options = fileInformation[0].second;
+            emitEvent("onImageLoading", null);
 
             InputStream istr = null;
             Bitmap image;
