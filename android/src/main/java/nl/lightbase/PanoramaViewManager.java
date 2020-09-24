@@ -64,7 +64,6 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
 
     @Override
     public VrPanoramaView createViewInstance(ThemedReactContext context) {
-        emitEvent("onImageLoading", null);
         vrPanoramaView = new VrPanoramaView(context.getCurrentActivity());
         vrPanoramaView.setEventListener(new ActivityEventListener());
 
@@ -88,6 +87,7 @@ public class PanoramaViewManager extends SimpleViewManager<VrPanoramaView> {
 
         if (imageUrl != null && URLUtil.isValidUrl(imageUrl.toString())) {
             try {
+                emitEvent("onImageLoading", null);
                 imageLoaderTask = new ImageLoaderTask();
                 imageLoaderTask.execute(Pair.create(imageUrl, _options));
                 emitEvent("onImageLoaded", null);
